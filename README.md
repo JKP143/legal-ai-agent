@@ -158,12 +158,15 @@ Optional — for the helper scripts in `tools/`. Copy `.env.example` to `.env`.
 Per-region detail views of the canvas:
 
 ![Region A — Document Intake & Summary](docs/screenshots/region-a-intake-summary.png)
+
 *Region A — Intake & Summary: Gmail trigger filters for legal attachments, the doc is dedup'd, summarized by Claude Sonnet, embedded, persisted to Postgres + Sheets, and a confirmation email goes to the team.*
 
 ![Region B — Contract Clause Matrix](docs/screenshots/region-b-contract-clause-matrix.png)
+
 *Region B — Contract Clause Matrix: Drive trigger for new contracts, Claude Haiku extracts parties + type, Claude Sonnet breaks the contract into 8 clause categories, each clause is embedded individually, and a risk-summary email is sent.*
 
 ![Region C — Legal Assistant chatbot](docs/screenshots/region-c-legal-assistant.png)
+
 *Region C — Legal Assistant: Telegram chatbot backed by Gemini 2.5 Pro with four tools (DocumentSummaries, ContractAnalysis, GmailDraft, GmailSender) and Postgres chat memory; replies in IRAC memo format, chunked to fit Telegram's 4096-char limit.*
 
 ## See also
