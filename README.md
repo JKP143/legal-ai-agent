@@ -2,7 +2,7 @@
 
 > A single n8n workflow that delivers three legal-AI capabilities for a small law firm: document intake & summary, contract clause matrix, and a Telegram chatbot that answers from your firm's own corpus and drafts IRAC memos.
 
-![placeholder — drop a screenshot of the canvas or a chatbot reply in docs/screenshots/ and link it here](docs/screenshots/.gitkeep)
+![Legal AI Agent — n8n workflow canvas](docs/screenshots/workflow-full.png)
 
 ## What it does
 
@@ -152,6 +152,19 @@ Optional — for the helper scripts in `tools/`. Copy `.env.example` to `.env`.
 - `tools/verify_legal_workflow.py` — semantic checks for all three regions, including the 8-clause taxonomy, 4 ai_tool subnodes wired to the Region C agent, and the FILR memo section requirements.
 - `tools/fetch_execution.py` — pull a run's data; essential for debugging tool-call routing in Region C.
 - `tools/list_executions.py` — recent runs.
+
+## Screenshots
+
+Per-region detail views of the canvas:
+
+![Region A — Document Intake & Summary](docs/screenshots/region-a-intake-summary.png)
+*Region A — Intake & Summary: Gmail trigger filters for legal attachments, the doc is dedup'd, summarized by Claude Sonnet, embedded, persisted to Postgres + Sheets, and a confirmation email goes to the team.*
+
+![Region B — Contract Clause Matrix](docs/screenshots/region-b-contract-clause-matrix.png)
+*Region B — Contract Clause Matrix: Drive trigger for new contracts, Claude Haiku extracts parties + type, Claude Sonnet breaks the contract into 8 clause categories, each clause is embedded individually, and a risk-summary email is sent.*
+
+![Region C — Legal Assistant chatbot](docs/screenshots/region-c-legal-assistant.png)
+*Region C — Legal Assistant: Telegram chatbot backed by Gemini 2.5 Pro with four tools (DocumentSummaries, ContractAnalysis, GmailDraft, GmailSender) and Postgres chat memory; replies in IRAC memo format, chunked to fit Telegram's 4096-char limit.*
 
 ## See also
 
